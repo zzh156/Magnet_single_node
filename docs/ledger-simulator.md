@@ -51,7 +51,7 @@ As it is currently implemented, a tag must be passed to the build step for avala
 With these tag, the ledger golang library will try to connect to an rpc endpoint instead of a usb device 
 when asked to send requests to ledger (query for addresses, etc).
 
-Currently the rpc endpoint is hardcoded in ledger golang library to: `127.0.0.1:3002`
+Currently the rpc endpoint is hardcoded in ledger golang library to: `0.0.0.1:3002`
 
 ## How a golang test executes and interacts with the typescript script
 

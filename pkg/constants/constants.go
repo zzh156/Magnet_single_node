@@ -85,7 +85,7 @@ const (
 	MainnetAPIEndpoint = "https://api.avax.network"
 
 	// this depends on bootstrap snapshot
-	LocalAPIEndpoint                   = "http://127.0.0.1:9650"
+	LocalAPIEndpoint                   = "http://0.0.0.1:9650"
 	LocalNetworkID                     = 1337
 	LocalNetworkNumNodes               = 2
 	LocalNetworkAvalancheGoMaxLogSize  = 1

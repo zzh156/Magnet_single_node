@@ -130,7 +130,7 @@ var _ = ginkgo.Describe("[Etna AddRemove Validator SOV PoS]", func() {
 		output, err := commands.GetLocalClusterStatus(utils.TestLocalNodeName, utils.SubnetName)
 		gomega.Expect(err).Should(gomega.BeNil())
 		fmt.Println(output)
-		// make sure we can find string with "http://127.0.0.1:port" and "L1:Validating" string in the output
+		// make sure we can find string with "http://0.0.0.1:port" and "L1:Validating" string in the output
 		parsedURL, err := url.Parse(localClusterUris[1])
 		gomega.Expect(err).Should(gomega.BeNil())
 		port := parsedURL.Port()

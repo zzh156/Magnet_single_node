@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	localhost = "127.0.0.1"
+	localhost = "0.0.0.1"
 	sshPort   = 12201
 )
 

@@ -32,7 +32,7 @@ const options = {
 }
 
 async function main() {
-  const sim = new Zemu(appPath, {}, "127.0.0.1", transportPort, speculosApiPort);
+  const sim = new Zemu(appPath, {}, "0.0.0.1", transportPort, speculosApiPort);
 
   await Zemu.checkAndPullImage();
   await Zemu.stopAllEmuContainers();

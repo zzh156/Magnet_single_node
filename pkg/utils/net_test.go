@@ -13,10 +13,10 @@ func TestIsValidIPPort(t *testing.T) {
 		input    string
 		expected bool
 	}{
-		{"127.0.0.1:8080", true},       // valid IP:port
+		{"0.0.0.1:8080", true},       // valid IP:port
 		{"256.0.0.1:8080", false},      // invalid IP address
-		{"127.0.0.1:9650:8080", false}, // only ip address is allowed
-		{"127.0.0.1", false},           // missing port
+		{"0.0.0.1:9650:8080", false}, // only ip address is allowed
+		{"0.0.0.1", false},           // missing port
 		{"[::1]:8080", true},           // valid IPv6 address
 		{"[::1]", false},               // missing port for IPv6
 		{"", false},                    // empty string
@@ -42,8 +42,8 @@ func TestSplitRPCURI(t *testing.T) {
 	}{
 		{
 			name:             "Valid URI",
-			requestURI:       "http://127.0.0.1:9660/ext/bc/nL95ujcHLPFhuQdHYkvS3CSUvDr9EfZduzyJ5Ty6VXXMgyEEF/rpc",
-			expectedEndpoint: "http://127.0.0.1:9660",
+			requestURI:       "http://0.0.0.1:9660/ext/bc/nL95ujcHLPFhuQdHYkvS3CSUvDr9EfZduzyJ5Ty6VXXMgyEEF/rpc",
+			expectedEndpoint: "http://0.0.0.1:9660",
 			expectedChain:    "nL95ujcHLPFhuQdHYkvS3CSUvDr9EfZduzyJ5Ty6VXXMgyEEF",
 			expectError:      false,
 		},
@@ -56,21 +56,21 @@ func TestSplitRPCURI(t *testing.T) {
 		},
 		{
 			name:             "Invalid URI - missing /rpc",
-			requestURI:       "http://127.0.0.1:9660/ext/bc/nL95ujcHLPFhuQdHYkvS3CSUvDr9EfZduzyJ5Ty6VXXMgyEEF",
+			requestURI:       "http://0.0.0.1:9660/ext/bc/nL95ujcHLPFhuQdHYkvS3CSUvDr9EfZduzyJ5Ty6VXXMgyEEF",
 			expectedEndpoint: "",
 			expectedChain:    "",
 			expectError:      true,
 		},
 		{
 			name:             "Invalid URI - missing /ext/bc/",
-			requestURI:       "http://127.0.0.1:9660/some/other/path/rpc",
+			requestURI:       "http://0.0.0.1:9660/some/other/path/rpc",
 			expectedEndpoint: "",
 			expectedChain:    "",
 			expectError:      true,
 		},
 		{
 			name:             "Invalid URI - malformed URL",
-			requestURI:       "127.0.0.1:9660/ext/bc/chainId/rpc",
+			requestURI:       "0.0.0.1:9660/ext/bc/chainId/rpc",
 			expectedEndpoint: "",
 			expectedChain:    "",
 			expectError:      true,
